@@ -1,0 +1,1 @@
+@bear@ --append -- ${compiler} ${extraBefore+"${extraBefore[@]}"} ${params+"${params[@]}"} ${extraAfter+"${extraAfter[@]}"}
