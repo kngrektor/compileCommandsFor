@@ -6,7 +6,7 @@
   outputs = {self, nixpkgs, flake-utils}:
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages."${system}"; in {
-        packages.compileCommandsFor = pkgs.callPackage ./compilecommandsfor.nix {};      
+        packages.compileCommandsFor = pkgs.callPackage ./compileCommandsFor.nix {};
       }
     );
 }
