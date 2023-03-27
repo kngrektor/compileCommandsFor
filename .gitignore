@@ -1,0 +1,6 @@
+.std
+
+# nixago: ignore-linked-files
+lefthook.yml
+.conform.yaml
+treefmt.toml
