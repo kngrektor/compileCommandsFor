@@ -1,7 +1,9 @@
 # CompileCommandsFor
+
 Generate a compile_commands.json for clangd from a nix package/derivtion using cc-wrapper's cc-wrapper-hook and bear.
 
 ## Usage
+
 ```nix
 # flake.nix
 {
@@ -15,10 +17,10 @@ Generate a compile_commands.json for clangd from a nix package/derivtion using c
   outputs = {self, nixpkgs, compileCommandsFor}: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages."${system}";
-    ccf = compileCommandsFor.packages."${system}".compileCommandsFor;
+    inherit (compileCommandsFor.lib."${system}") compileCommands;
   in {
     packages."${system}" = {
-      compileCommands = ccf pkgs.hello;
+      compileCommands = compileCommands pkgs.hello;
     };
   };
 }
@@ -27,4 +29,5 @@ Generate a compile_commands.json for clangd from a nix package/derivtion using c
 `nix build .#compileCommands --out-link compile_commands.json`
 
 ## Prior work
+
 [https://github.com/danielbarter/mini_compile_commands](https://github.com/danielbarter/mini_compile_commands)
